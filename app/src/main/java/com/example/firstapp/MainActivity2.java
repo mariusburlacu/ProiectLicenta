@@ -1,23 +1,14 @@
 package com.example.firstapp;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
-import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.firstapp.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -26,7 +17,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-public class MainActivity2 extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity2 extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
 
@@ -63,7 +54,7 @@ public class MainActivity2 extends AppCompatActivity implements NavigationView.O
         NavigationView nav = findViewById(R.id.nav_view);
         View headerView = nav.getHeaderView(0);
         TextView username = headerView.findViewById(R.id.textView);
-        username.setText(getIntent().getStringExtra(MainActivity.EXTRA_MESSAGE));
+        username.setText(getIntent().getStringExtra(LoginActivity.EXTRA_MESSAGE));
     }
 
     @Override
@@ -80,22 +71,22 @@ public class MainActivity2 extends AppCompatActivity implements NavigationView.O
                 || super.onSupportNavigateUp();
     }
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.nav_fotbal: {
-                changeFragment(new FotbalFragment());
-                break;
-            }
-        }
-        return true;
-    }
-
-    private void changeFragment(Fragment fragment){
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.nav_host_fragment, fragment);
-        transaction.commit();
-
-    }
+//    @Override
+//    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//        switch (item.getItemId()){
+//            case R.id.nav_fotbal: {
+//                changeFragment(new FotbalFragment());
+//                break;
+//            }
+//        }
+//        return true;
+//    }
+//
+//    private void changeFragment(Fragment fragment){
+//        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+//        transaction.replace(R.id.nav_host_fragment, fragment);
+//        transaction.commit();
+//
+//    }
 
 }

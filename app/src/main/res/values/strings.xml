@@ -25,4 +25,6 @@
     <string name="signup">Sign up</string>
     <string name="problem">Tell us about your problem:</string>
     <string name="send">Send</string>
+    
+    <string name="google_maps_API">AIzaSyCfo_PoDasfH4ibvK3yRuQc-plK92YxIYw</string>
 </resources>

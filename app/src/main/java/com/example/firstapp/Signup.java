@@ -60,7 +60,7 @@ public class Signup extends AppCompatActivity {
                             //reff.child("User "+String.valueOf(maxId+1)).setValue(user);
                             reff.child(et_username.getText().toString()).setValue(user);
                             Toast.makeText(Signup.this, "Signup successful!", Toast.LENGTH_LONG).show();
-                            Intent intent = new Intent(Signup.this, MainActivity.class);
+                            Intent intent = new Intent(Signup.this, LoginActivity.class);
                             startActivity(intent);
                         }
                         else{

@@ -5,15 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
-import android.database.DatabaseUtils;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
-import android.view.KeyEvent;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -25,7 +22,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class MainActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     private Button btn;
     private EditText etUsername;
@@ -39,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.login_activity);
         //getSupportActionBar().setDisplayShowTitleEnabled(false); //sterge titlul aplicatiei din toolbar
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO); //sterge dark mode ul
         reff = FirebaseDatabase.getInstance().getReference();
@@ -54,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(@NonNull View view) {
                 //Toast.makeText(MainActivity.this, "Clicked on sign up!", Toast.LENGTH_LONG).show();
-                Intent intent2 = new Intent(MainActivity.this, Signup.class);
+                Intent intent2 = new Intent(LoginActivity.this, Signup.class);
                 startActivity(intent2);
             }
         };
@@ -79,12 +76,12 @@ public class MainActivity extends AppCompatActivity {
                         if(value.equals(password)){
                             // value a luat valoarea copilului "password" si
                             // verificam daca valoarea lui value este egala cu password-ul nostru
-                            Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+                            Intent intent = new Intent(LoginActivity.this, MainActivity2.class);
                             intent.putExtra(EXTRA_MESSAGE, etUsername.getText().toString());
                             startActivity(intent);
                         }
                         else{
-                            Toast.makeText(MainActivity.this, "Incorrect username or password",
+                            Toast.makeText(LoginActivity.this, "Incorrect username or password",
                                     Toast.LENGTH_LONG).show();
                         }
                     }
